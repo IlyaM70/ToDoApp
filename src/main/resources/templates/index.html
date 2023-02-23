@@ -1,10 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/5.2.3/css/bootstrap.min.css}" />
 </head>
 <body>
-  Welcome
+    <div class="container-xl">
+        <h1 class="text-center mt-3">To do:</h1>
+        <hr>
+        <table class="table table-bordered table-striped">
+            <thread>
+                <tr>
+                    <th>Task</th>
+                    <th>Done</th>
+                </tr>
+            </thread>
+            <tbody>
+                <tr th:each="item: ${toDoList}">
+                    <td th:text="${item.task}"></td>
+                    <td th:text="${item.isDone}"></td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+
+<script th:src="@{/webjars/jquery/3.6.3/jquery.min.js}"></script>
+<script type="text/javascript" th:src="@{/webjars/bootstrap/5.2.3/js/bootstrap.min.js}"></script>
 </body>
 </html>

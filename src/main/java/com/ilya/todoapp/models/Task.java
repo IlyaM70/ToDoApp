@@ -13,6 +13,14 @@ public class Task {
     @Column
     private Boolean isDone;
 
+    public Task() {
+    }
+
+    public Task(String task) {
+        this.task = task;
+        this.isDone = false;
+    }
+
     public long getId() {
         return id;
     }
@@ -29,11 +37,12 @@ public class Task {
         this.task = task;
     }
 
-    public Boolean getDone() {
+    public Boolean getIsDone() {
         return isDone;
     }
 
-    public void setDone(Boolean done) {
+
+    public void setIsDone(Boolean done) {
         isDone = done;
     }
 }
