@@ -2,7 +2,7 @@
 <html lang="en"xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>To do</title>
     <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/5.2.3/css/bootstrap.min.css}" />
 </head>
 <body>
@@ -14,12 +14,19 @@
                 <tr>
                     <th>Task</th>
                     <th>Done</th>
+                    <th>Action</th>
                 </tr>
             </thread>
             <tbody>
                 <tr th:each="item: ${toDoList}">
-                    <td th:text="${item.task}"></td>
+                    <td th:text="${item.toDo}"></td>
                     <td th:text="${item.isDone}"></td>
+                    <td>
+                        <div class="btn btn-group-sm">
+                            <a class="btn btn-info" th:href="@{/edit/{id}(id=${item.id})}">Edit</a>
+                            <a class="btn btn-danger" th:href="@{/delete/{id}(id=${item.id})}">Delete</a>
+                        </div>
+                    </td>
                 </tr>
             </tbody>
         </table>

@@ -9,7 +9,7 @@ public class Task {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @Column
-    private String task;
+    private String toDo;
     @Column
     private Boolean isDone;
 
@@ -17,7 +17,7 @@ public class Task {
     }
 
     public Task(String task) {
-        this.task = task;
+        this.toDo = task;
         this.isDone = false;
     }
 
@@ -29,12 +29,12 @@ public class Task {
         this.id = id;
     }
 
-    public String getTask() {
-        return task;
+    public String getToDo() {
+        return toDo;
     }
 
-    public void setTask(String task) {
-        this.task = task;
+    public void setToDo(String task) {
+        this.toDo = task;
     }
 
     public Boolean getIsDone() {
@@ -45,4 +45,11 @@ public class Task {
     public void setIsDone(Boolean done) {
         isDone = done;
     }
+
+    @Override
+    public String toString() {
+        return String.format("Task{id=%d, task='%s', done='%s'}",
+                id, toDo, isDone);
+    }
+
 }
