@@ -16,8 +16,8 @@ public class Task {
     public Task() {
     }
 
-    public Task(String task) {
-        this.toDo = task;
+    public Task(String toDo) {
+        this.toDo = toDo;
         this.isDone = false;
     }
 

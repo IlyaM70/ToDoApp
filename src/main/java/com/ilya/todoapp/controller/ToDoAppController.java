@@ -27,6 +27,22 @@ public class ToDoAppController {
         return modelAndView;
     }
 
+    @GetMapping("/create-task")
+    public String showCreateForm(Task task){
+        return "add-task";
+    }
+
+    @PostMapping("/task")
+    public String createTask(@Valid Task task, BindingResult result, Model model ){
+        if (result.hasErrors()){
+            return "add-task";
+        }
+        task.setIsDone(false);
+        toDoListRepo.save(task);
+        return "redirect:/";
+    }
+
+
     @GetMapping("/edit/{id}")
     public String showEditForm(@PathVariable("id") long id, Model model){
         Task task = toDoListRepo.findById(id).orElseThrow(()-> new IllegalArgumentException("Task id: "+id+" not found"));

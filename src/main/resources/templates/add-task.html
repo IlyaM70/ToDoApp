@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en"xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Add task</title>
+  <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/5.2.3/css/bootstrap.min.css}" />
+</head>
+<body>
+<div class="container-xl">
+
+  <div class="d-flex justify-content-center">
+    <div class="col-sm-6 mt-3">
+      <h1>Add new task</h1>
+      <form action="#" th:action="@{/task}" th:object="${task}" method="post">
+        <div class="form-group">
+          <label for="description">Task:</label>
+          <input class="mt-2 form-control" type="text" th:field="*{toDo}" id="description" placeholder="Add a task">
+        </div>
+        <button class="mt-2 btn btn-primary" type="submit">Add</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+<script th:src="@{/webjars/jquery/3.6.3/jquery.min.js}"></script>
+<script type="text/javascript" th:src="@{/webjars/bootstrap/5.2.3/js/bootstrap.min.js}"></script>
+</body>
+</html>
